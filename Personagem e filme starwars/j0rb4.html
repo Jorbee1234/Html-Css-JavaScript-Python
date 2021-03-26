@@ -1,0 +1,235 @@
+<!Doctype.html>
+<html>
+<head>
+<title>Informações de StarWars</title>
+<meta charset="utf-8" />
+
+<!-- Usado para dar estetica ao site, como a construção das linhas da tabela e a localização dela na lista, como a do titulo da pagina e a pagina no geral -->
+<style>
+body{
+    background-color:black;
+}
+*{
+	margin:0;
+	padding:0;
+	background-image:url('a.jpg');
+	background-color:black;
+}
+table{
+    width:100%;
+	border-collapse: collapse;
+}
+table,th,td{
+    border: 1px solid yellow;
+}
+tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+tr:hover{
+    background-color: #f5f5f5;
+}
+th{
+   text-shadow: 0px 0px 1px red,
+     0px 0px 13px blue,
+     0px 0px 23px green;
+    background-color: #778899;
+	color: #4682B4;
+}
+th,td{
+    border-bottom: 1px solid yellow;
+}
+th,td{
+    padding: 15px;
+	text-align: center;
+}
+th{
+    text-align: center;
+}
+td{
+    height: 50 px;
+	vertical-align: bottom;
+	color: white;
+}
+.maxWidth{
+    max-width: 1200px;
+	width: 100%;
+}
+.input{
+    padding: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	box-sizing: border-box;
+	outline-color: #4682B4;
+	color: #4682B4;
+	font-weight: bold;
+}
+h1{
+	font-family: Nunito, sans-serif;
+	text-shadow: 0 1px 0 #cccccc, 
+0 2px 0 #c9c9c9, 0 3px 0 #bbbbbb, 
+0 4px 0 #b9b9b9, 0 5px 0 #aaaaaa, 
+0 6px 1px rgba(0, 0, 0, 0.1), 
+0 0 5px rgba(0, 0, 0, 0.1), 
+0 1px 3px rgba(0, 0, 0, 0.3), 
+0 3px 5px rgba(0, 0, 0, 0.2), 
+0 5px 10px rgba(0, 0, 0, 0.25), 
+0 10px 10px rgba(0, 0, 0, 0.2), 
+0 20px 20px rgba(0, 0, 0, 0.15);
+	color: yellow;
+	text-align:center;
+	font-style:italic;
+	font-size:72px;
+}
+
+
+#Filme {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	padding: 10px 10px 20px 20px;
+	background-color:#FFFFFF;
+}
+#Filme h2{
+    font-family:Brush Script MT;
+	font-size: 42px;
+	color:#FFFFFF
+}
+#Filme p{
+	max-height:1000px;
+	text-align:center;
+	text-decoration:underline;
+	font-size:42px;
+}
+
+
+</style>
+</head>
+
+<!-- Aqui é a parte do html onde é construido o corpo da pagina -->
+<body>
+
+<br><br><br><br><br><br><br><br>
+
+<h1>Pesquise sobre StarWars</h1>
+
+<br><br><br><br><br><br><br><br>
+
+<section id="Filme">
+<h2> Filmes & Personagens </h2>
+<p> Filmes & Personagens </p>
+<div id="Tabela" class="maxWidth">
+  <input type="text" id="txtbusc" placeholder="Buscar Informação" class="maxWidth input" /> 
+  <!-- Para a tabela ser construida -->
+  <table>
+     <thead>
+	   <tr>
+	      <th>Nome do filme <br> ou <br> Nome Personagem </th>
+		  <th>Nome do diretor <br> ou <br> Altura</th>
+		  <th>Nome do produtor <br> ou <br> Massa</th>
+		  <th>Número do filme <br> ou <br> Cor do Cabelo</th>
+		  <th>Data de lançamento <br> ou <br> Cor da Pele</th>
+		  <th> Cor dos olhos </th>
+		  <th> Data de nascimento </th>
+		  <th> Genero</th>
+		</tr>
+	</thead>
+	<tbody id="tbody"></tbody> <!-- O corpo onde as informações serão guardadas -->s
+   </table>
+</div>
+</section>
+<!-- Aqui começa a parte de JavaScript do site -->
+<script>
+// Inicio da tabela
+// Essa primeira parte do codigo é usado para que as informações dentro da tabela sejam preenchidas pelos dados colocados dentro da array "dados"
+var tbody = document.getElementById("tbody");
+var dados = [ 
+    ["Guerra nas Estrelas","George Lucas","LucasFilm","Filme 1","18 de novembro de 1977"," - "," - "," - "],
+	["Guerra nas Estrelas: O Império Contra-Ataca","Irvin Kershner","LucasFilm","Filme 2","21 de julho de 1980"," - "," - "," - "],
+	["O Retorno de Jedi","Richard Marquand","LucasFilm","Filme 3","6 de outubro de 1983"," - "," - "," - "],
+	["Star Wars: Episódio I – A Ameaça Fantasma","George Lucas","LucasFilm","Filme 4","24 de junho de 1999"," - "," - "," - "],
+	["Star Wars: Episódio 2 – Ataque dos Clones","George Lucas","LucasFilm","Filme 5","16 de maio de 2002"," - "," - "," - "],
+	["Star Wars: Episódio III – A Vingança dos Sith","George Lucas","LucasFilm","Filme 6","19 de maio de 2005"," - "," - "," - "],
+	["Star Wars: O Despertar da Força","J. J. Abrams","LucasFilm","Filme 7","17 de dezembro de 2015"," - "," - "," - "],
+	["Star Wars: Os Últimos Jedi","Rian Johnson","LucasFilm","Filme 8","14 de dezembro de 2017"," - "," - "," - "],
+	["Star Wars: Episódio IX","J. J. Abrams","LucasFilm","Filme 9","19 de dezembro de 2019"," - "," - "," - "],
+["Anakin Skywalker","1.85","Indefinido","Loiro Escuro","Branca","Azuis","42 ABY","Masculino"],
+["Darth Vader","2.02","Indefinido","Loiro Escuro","Branca","Azuis","42 ABY","Masculino"],
+["Obi-Wan Ben Kenobi","1.79","Indefinido","Ruivo","Branca","Azuis","57 ABY","Masculino"],
+["Luke Skywalker","1.72","Indefinido","Loiro","Clara","Azuis","19 ABY","Masculino"],
+["Leia Organa Solo","1.50","Indefinido","Castanho escuro","Caucasiana","Castanhos","19 ABY","Feminino"],
+["Yoda","0.66","Indefinido","Castanho","Verde","Castanho","896 ABY","Masculino"],
+["Palpatine","1.73","Indefinido","Ruivo","Branco","Azuis","82 ABY","Masculino"],
+["C-3PO","1,67","Indefinido","Nenhum","Dourado","Preto","112 ABY","Robo"],
+["R2-D2","0.96","32kg","Nenhum","Branco","Vermelho","33 ABY","Robo"],
+["Han Solo","1.80","Indefinido","Marrom","Clara","Marrom","29 ABY","Masculino"],
+["Chewbacca","2.28","Indefinido","Marrom","Indefinido","Azuis","200 ABY","Indefinido"],
+["Padmé Amidala","1.65","45kg","Castanho","Clara","Castanhos","46 ABY","Feminino"],
+["Dookan","1.93","Indefinido","Castanho","Clara","Castanhos","102 ABY","Masculino"],
+["Lando Calrissian","1.77","Indefinido","Preto","Escura","Castanhos","31 ABY","Masculino"],
+["Mace Windu","1.88","Indefinido","Raspado","Escura","Castanhos","72 ABY","Masculino"],
+["Qui-Gon Jinn","1.93","Indefinido","Castanho","Claro","Azuis","92 ABY","Masculino"],
+["Rey Skywalker","1.70","Indefinido","Marrom","Caucasiana","Castanhos","15 DBY","Feminino"],
+["Ben Solo","1.85","89kg","Preto","Indefinido","Castanhos","5 DBY","Masculino"],
+["Finn","1.78","73kg","Preto","Negra","Marrons","7 Anos Depois da Batalha de Endor","Masculino"],
+["Poe Dameron","Indefinido","Indefinido","Marrom","Clara","Marrons","2 Anos Antes da Batalha de Endor","Masculino"],
+["Jyn Erso","1.60","Indefinido","Marrom","Branca","Verdes","22 ABY","Feminino"],
+["Cassian Jeron Andor","1.78","Indefinido","Marrom","Clara","Marrons","26 ABY","Feminino"],
+["Nute Gunray","1.91","90kg","Indefinido","Verde","Vermelhos","Indefinido","Masculino"],
+["Cad Bane","1.85","75kg","Inexistente","Azul-esverdeada","Vermelhos","Indefinido","Masculino"],
+["Anaconda Farr","1.73","Indefinido","Inexistente","Verde","Azuis","Indefinido","Masculino"],
+["Finis Valorum","1.70","Indefinido","Branco","Clara","Azuis","91 ABY","Masculino"],
+["Shmi Skywalker Lars","1.63","Indefinido","Castanho","Indefinido","Castanhos","72 ABY","Feminino"],
+["Bail Prestor Organa","1.91","Indefinido","Preto","Indefinido","Castanhos","67 ABY","Masculino"],
+["Ahsoka Tano","1.61 (mais tarde 1.70)","Indefinido","Inexistente","Laranja","Azuis","c. 35 ABY","Feminino"],
+["Jabba Desilijic Tiure","3.9","Indefinido","Inexistente","Indefinido","Laranja/Amarelo/Vermelho","600 ABY","Hemafrodita"],
+["Wicket Wystri Warrick","0.8","Indefinido","Marrom","Indefinido","Marrons/Pretos","Aproximadamente 8 ABY","Masculino"],
+["Deej Warrick","Indefinido","Indefinido","Castanho","Indefinido","Pretos","Indefinido","Masculino"],
+["Shaak Ti","1.78","Indefinido","Inexistente","Indefinido","Pretos","40 ABY","Feminino"],
+["Peixe-Garra","40","Indefinido","Inexistente","Verde/Amarelo","Amarelos","Indefinido","Indefinido"],
+["Luminara Unduli","1.7","Indefinido","Preto","Indefinido","Azuis","58 ABY","Feminino"]
+];
+//Usa-se o .length para o programa ter noção de quantas informações foram guardadas no array para que o loop rode todos os dados sem problemas
+//Nesse loop ele é utilizado para que as informações da array sejam colocadas na tabela sem nenhum problema
+for(var i = 0;i < dados.length;i++){
+var tr = "<tr>" +
+    "<td>" + dados[i][0] + "</td>" +
+	"<td>" + dados[i][1] + "</td>" +
+	"<td>" + dados[i][2] + "</td>" +
+	"<td>" + dados[i][3] + "</td>" +
+	"<td>" + dados[i][4] + "</td>" +
+	"<td>" + dados[i][5] + "</td>" +
+	"<td>" + dados[i][6] + "</td>" +
+	"<td>" + dados[i][7] + "</td>" +
+	"</tr>";
+	tbody.innerHTML += tr;
+	console.log(tr);
+}
+// Fim da tabela
+	var tr = tbody.childNodes; // Para obter todos os itens
+
+  document.getElementById("txtbusc").addEventListener("keyup",function(){ // Isso aqui basicamente é um eventlistener para que quando o usuário digitar alguma coisa no campo de busca ele vai buscar as informações
+     
+	 var buscar = document.getElementById("txtbusc").value.toLowerCase(); // Usado para obter o valor de campo de busca. A parte do "toLowerCase" coloca a palavra digitada em letras minusculas para facilitar
+	 
+	for(var i = 0; i < tbody.childNodes.length; i++){ // Esse for é para buscar as informações dentro do Nodes, usado para verificar a Linha
+	    var achar = false; // Padrão ela começar no falso
+		var tr = tbody.childNodes[i];// Usado para acessar o elemento que está na posição i
+		var td = tr.childNodes;// Recebe o tr 
+	for(var j = 0; j < td.length; j++){// Ele percorre os itens das colunas 
+	    var value = td[j].childNodes[0].nodeValue.toLowerCase();// Ele pega o valor , usa o toLowerCase novamente porque na busca já tinha posto para fazer isso
+		if(value.indexOf(buscar) >= 0){ // Usado para ser feito a verificação
+		achar = true;
+		}
+	}
+	   if (achar) {
+	     tr.style.display = "table-row"; // Usando esse comando para que quando for mostrar o resultado ele irá mostrar em forma de tabela
+	   } else {
+	     tr.style.display = "none"; // Usando esse comando para quando o pedido do usuário não for encontrado ele simplesmente não mostra nada
+		 }
+		}
+	});
+</script>
+</body>
+</html>
+  
