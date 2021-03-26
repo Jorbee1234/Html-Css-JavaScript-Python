@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Cadastro </title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="cadastro.css">
+</head>
+<body>
+<form method="POST" action="trabalho.php">
+<fieldset id="usuario">
+<legend>Identificação de usuario </legend>
+<p><label for="a">Nome: <input type="text" placeholder="Nome completo" maxlength=30 id="a" name="nome" /></label>
+<p><label for="b">Senha: <input type="password" placeholder="10 caracteres" maxlength=10 id="b" name="senha" /></label>
+<p><label for="c">E-mail <input type="email" placeholder="e-mail" maxlength=40 id="c" name="email" /></label></p>
+<fieldset id="sexo">
+<legend> Sexo </legend>
+<label for="d"> Masculino <input type="radio" id="d" name="sexo" /></label>
+<label for="e"> Feminino <input type="radio" id="e" name="sexo" /></label>
+</fieldset>
+<p><label for="f">Data de Nascimento <input type="date" id="f" name="data" /></label></p>
+</fieldset>
+<fieldset id="endereco">
+<legend> Endereço do Usuario </legend>
+<p><label for="g"> Endereço <input type="text" placeholder="Rua AV Trav" maxlength=40 id="g" name="endereço" /></label>
+<p><label for="h"> Numero <input type="text" maxlength=10 id="h" name="Numero" /></label>
+<p><label for="i"> Cidade <input type="text" placeholder="Cidade" maxlength=15 id="i" name="endereço" /></label></p>
+<select>Estado
+<option>RJ
+<option>SP
+<option>MG</option>
+</select>
+<br><br>
+<input type="submit" value="Enviar" id="botao" />
+<input type="reset" value="Limpar" id="Botaum" />
+</fieldset>
+</form>
+</body>
+</html>

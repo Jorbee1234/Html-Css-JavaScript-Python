@@ -1,0 +1,59 @@
+form{
+	width:400px;
+	margin:auto;
+	border:4px dashed;
+}
+legend{
+	color:blue;
+	font-size:10pt;
+	font-weight:bold;
+}
+/* Dentro do Formulario 
+ fieldset{
+	 background-image: url("a.gif");
+	 background-size:100%;
+*/
+#usuario{
+	border-color:green;
+	margin:20px;
+	background-color:#addbff;
+	border:4px double;
+}
+#endereco{
+	border-color:red;
+	margin:20px;
+	background-color:#579cd1;
+}
+#sexo{
+	background-color:pink;
+}
+#botao{
+	border: 1px double pink;
+	background-color:red;
+	box-shadow: 0px 5px 20px blue;
+	cursor:pointer;
+}
+#botao:hover{
+	color:pink;
+	background-color:green;
+	box-shadow: 0px 10px 30px orange
+}
+#Botaum{
+	border: 1px double pink;
+	background-color:green;
+	box-shadow: 0px 5px 20px blue;
+	cursor:pointer;
+}
+#Botaum:hover{
+	color:black;
+	background-color:red;
+	box-shadow: 0px 10px 30px orange
+}
+input:hover{
+	background-color:pink;
+}
+label:hover{
+	text-transform:uppercase;
+	font-weight:bold;
+}
+	
